@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Algorithms and Data Structures</title>
+
+		<meta name="description" content="Workshop for Twitter GWC Summer 2015">
+		<meta name="author" content="David Turner and Janessa Det">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/white.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>Data Structures and Algorithms</h1>
+					<h3>A complete college course in 45 minutes</h3>
+					<p>
+						<small>By David Turner and Janessa Det</small>
+					</p>
+				</section>
+				<section>
+					<h1>Motivation</h1>
+					<ul>
+					<li>Your code is slow
+					<li class="fragment">Tech job interviews</li>
+					</ul>
+				</section>
+				<section>
+					<h1>What's an algorithm?</h1>
+					<ul>
+					<li>A way to solve a problem</li>
+					<li>A step-by-step approach</li>
+					</ul>
+				</section>
+				<section>
+					<h1>How programmers look at algorithms</h1>
+					<ul>
+					<li>An algorithm operates on N things</li>
+					<li>Analysis looks at performance as N grows</li>
+					</ul>
+				</section>
+				<section>
+					<h1>Example: Collision detection</h1>
+
+					[Janessa, image here of things colliding]
+				</section>
+				<section>
+					<h1>Collision detection</h1>
+					<ul>
+					<li>N objects</li>
+					<li>Nested loops:
+
+					Janessa: Help, this is layed out funny (but only when we remove this text)!
+					<code><pre>
+for each object A:
+    for each object B:
+	if A != B and A collides with B:
+	    print "boom"
+					</pre></code>
+					</li>
+					<li>Count how many steps the code takes</li>
+				</section>
+				<section>
+					<h1>Collision detection: analysis</h1>
+					<ul>
+					<li>N objects</li>
+					<li>How many collision checks?</li>
+					<li class="fragment">Janessa, illustration of N^2 collisions
+					<li class="fragment">N<sup>2</sup> collision checks!</li>
+					</ul>
+				</section>
+				<section>
+					<h1>Data structures</h1>
+					<ul>
+					<li>Organize information</li>
+					<li>For efficiency or convenience</li>
+					<li>Examples: array, objects<sup>1</sup>, ...</li>
+					<li class="fragment">Sorted array</li>
+					<ul>
+				</section>
+				<section>
+					<h1>Collision detection: doing better</h1>
+					Janessa, original collision
+					image again, so that we can
+					say, "we know this fish over
+					here is never going to collide
+					with that fish over there"
+				</section>
+				<section>
+					<h1>Collision detection: doing better</h1>
+					<ul>
+					<li>Idea: sort objects left-to-right</li>
+					<li>Compare to middle object</li>
+					<li>Look at left or right half</li>
+					<li>Repeat</li>
+					</ul>
+				</section>
+				<section>
+					<h1>Binary search</h1>
+					Janessa, image of binary search
+				</section>
+				<section>
+					<h1>How many checks?</h1>
+					<ul>
+					<li>How many items with 1 split? <span class="fragment">2 (+ 1 splitter)</span></li>
+					<li class="fragment">How many items with 2 splits? <span class="fragment">4 (+ 2 splitters)</span></li>
+					<li class="fragment">How many items with 3 splits? <span class="fragment">8 (+ 3 splitters)</span></li>
+					<li class="fragment">How many items with 4 splits? <span class="fragment">16 (+ 4 splitters)</span></li>
+					<li class="fragment">...</li>
+					</ul>
+				</section>
+				<section>
+					<h1>How many checks?</h1>
+					<ul>
+					<li>2<sup>N</sup> items per check</li>
+					<li>How many checks per item?</li>
+					</ul>
+				</section>
+				<section>
+					<h1>Brief review of logarithms</h1>
+					<ul>
+					<li>log is the inverse of exponentiation</li>
+					<li>x = b<sup>e</sup></li>
+					<li>log<sub>b</sub>(x) = e</li>
+					</ul>
+				</section>
+				<section>
+					<h1>How many checks?</h1>
+					<ul>
+					<li>log<sub>2</sub> N checks per item</li>
+					<li>N * log<sub>2</sub> N checks total</li>
+
+					Janessa, graph of log(n)
+
+					<li>Much faster than N<sup>2</sup></li>
+					</ul>
+				</section>
+				<section>
+					<h1>Divide and conquer</h1>
+					<ul>
+					<li>Break a big problem down into small problems</li>
+					<li>Solve the small problems</li>
+					<li>(sometimes) combine the small problem results</li>
+					</ul>
+				</section>
+				<section>
+					<h1>Even faster collision detection</h1>
+					<ul>
+					<li>Divide space into small squares</li>
+					<li>Only check objects in the same square</li>
+					<li>Data structure: array of arrays of arrays</li>
+					Janessa, we should illustrate that data structure
+					</ul>
+				</section>
+				<section>
+					<h1>Evaluating algorithms and data structures</h1>
+				</section>
+				<section>
+					<h1>Big O notation</h1>
+					<ul>
+					<li>Worst case scenario</li>
+					<li>Don't sweat the small stuff</li>
+					<li class="fragment">N<sup>2</sup> + 5*N + 17 means O(N<sup>2</sup>)</li>
+					<li class="fragment">O(1): constant time</li>
+					<li class="fragment">O(N): linear time</li>
+					<li class="fragment">O(2<sup>N</sup>): exponential time</li>
+					</ul>
+				</section>
+				<section>
+					<h1>Standard data structures</h1>
+					<ul>
+					<li>Array</li>
+					<li>Binary search tree</li>
+					<li>Hash table ("object")</li>
+					</ul>
+				</section>
+				<section>
+					<h1>Array</h1>
+					<ul>
+					<li>Look up element by number: O(1)</li>
+					<li>Find element: O(N)</li>
+					<li>Insert at end<sup>1</sup>: O(1)</li>
+					<li>Insert in middle <sup>1</sup>: O(N)</li>
+					<li>Delete from middle <sup>1</sup>: O(N)</li>
+					</ul>
+				</section>
+				<section>
+					<h1>Binary search tree</h1>
+					<ul>
+					<li>Look up element by number: O(N)</li>
+					<li>Find element: O(log N)</li>
+					<li>Find next element: O(1)</li>
+					<li>Insert at end: O(log N)</li>
+					<li>Insert in middle : O(log N)</li>
+					<li>Delete from the middle : O(log N)</li>
+					</ul>
+				</section>
+				<section>
+					<h1>Hash table<sup>1</sup></h1>
+					<ul>
+					<li>Find element: O(1)</li>
+					<li>Find next element: O(N)</li>
+					<li>Insert: O(1)</li>
+					<li>Delete: O(1)</li>
+					</ul>
+				</section>
+				<section>
+					<h1>Standard data structures</h1>
+					<ul>
+					<li>Know these bounds</li>
+					<li>Practice implementing these</li>
+					</ul>
+				</section>
+				<section>
+					<h1>Selection sort</h1>
+					<ul>
+					<li>Find the smallest element</li>
+					<li>Put it at the beginning</li>
+					<li>Repeat with remainder of array</li>
+					</ul>
+					Janessa, illustration?  video?
+				</section>
+				<section>
+					<h1>Insertion sort</h1>
+					<ul>
+					<li>Make a new empty array</li>
+					<li>Take the first element of the old array</li>
+					<li>Put at the correct place in new array</li>
+					<li>Repeat with remainder of old array</li>
+					</ul>
+					Janessa, illustration?  video?
+				</section>
+				<section>
+					<h1>Merge sort</h1>
+					<ul>
+					<li>Divide and conquer</li>
+					<li>Split array into two halves</li>
+					<li>Sort the first half</li>
+					<li>Sort the second half</li>
+					<li>Merge the two sorted lists</li>
+					</ul>
+				</section>
+				<section>
+					<h1>Merging</h1>
+					Janessa, illustration?
+				</section>
+				<section>
+					<h1>Conclusion</h1>
+					<ul>
+					<li>You can fix slow code!</li>
+					<li>Data structures and algorithms can help</li>
+					</ul>
+				</section>
+				<section>
+					<h1>Exercise: implement mergesort</h1>
+					<ul>
+					<li>Split array into two halves</li>
+					<li>Sort the first half</li>
+					<li>Sort the second half</li>
+					<li>Merge the two sorted lists</li>
+					</ul>
+				</section>
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
