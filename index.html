@@ -85,30 +85,28 @@ for each object A:
 					<li>Count how many steps the code takes</li>
 				</section>
 				<section>
-					<section>
-						<h1>Collision detection: analysis</h1>
-						<ul>
-						<li>N objects</li>
-						<li>How many collision checks?</li>
-						<img width="300" height="300" src="images/pacman_collision.jpg">
-						</ul>
-					</section>
-					<section>
-						<h2>Collision detection: analysis</h2>
-						<img width="250" height="250" src="images/pacman_checks_1.gif">
-						<img width="250" height="250" src="images/pacman_checks_2.gif">
-						<img width="250" height="250" src="images/pacman_checks_3.gif">
-						<img width="250" height="250" src="images/pacman_checks_4.gif">
-						<img width="250" height="250" src="images/pacman_checks_5.gif">
-					</section>
-					<section>
-						<h1>Collision detection: analysis</h1>
-						<ul>
-						<li>N objects</li>
-						<li>How many collision checks?</li>
-						<li class="fragment">N<sup>2</sup> collision checks!</li>
-						</ul>
-					</section>
+					<h1>Collision detection: analysis</h1>
+					<ul>
+					<li>N objects</li>
+					<li>How many collision checks?</li>
+					<img width="300" height="300" src="images/pacman_collision.jpg">
+					</ul>
+				</section>
+				<section>
+					<h2>Collision detection: analysis</h2>
+					<img width="250" height="250" src="images/pacman_checks_1.gif">
+					<img width="250" height="250" src="images/pacman_checks_2.gif">
+					<img width="250" height="250" src="images/pacman_checks_3.gif">
+					<img width="250" height="250" src="images/pacman_checks_4.gif">
+					<img width="250" height="250" src="images/pacman_checks_5.gif">
+				</section>
+				<section>
+					<h1>Collision detection: analysis</h1>
+					<ul>
+					<li>N objects</li>
+					<li>How many collision checks?</li>
+					</ul>
+					<img class="fragment clear" src="images/n_squared.gif">
 				</section>
 				<section>
 					<h1>Data structures</h1>
@@ -120,24 +118,24 @@ for each object A:
 					<ul>
 				</section>
 				<section>
-					<section>
-						<h1>Collision detection: doing better</h1>
-						<img width="300" height="300" src="images/pacman_collision.jpg">
-					</section>
-					<section>
-						<h2>Collision detection: doing better</h2>
-						<ul>
-						<li>Idea: sort objects left-to-right</li>
-						<li>Compare to middle object</li>
-						<li>Look at left or right half</li>
-						<li>Repeat</li>
-						</ul>
-						<img width="600" src="images/pacman_sorted.gif">
-					</section>
-					<section>
-						<h1>Binary search</h1>
-						Janessa, image of binary search
-					</section>
+					<h1>Collision detection: doing better</h1>
+					<img width="300" height="300" src="images/pacman_collision.jpg">
+				</section>
+				<section>
+					<h2>Collision detection: doing better</h2>
+					<ul>
+					<li>Idea: sort objects left-to-right</li>
+					<li>Compare to middle object</li>
+					<li>Look at left or right half</li>
+					<li>Repeat</li>
+					</ul>
+					<img width="600" src="images/pacman_sorted.gif">
+				</section>
+				<section>
+					<h1>Binary search</h1>
+					whiteboard!!<br>
+					<a href="http://www.dave-reed.com/book/Chapter8/search.html" target="_blank">(Or see this lovely illustration)</a>
+					<a href="http://www.cs.armstrong.edu/liang/animation/web/BinarySearch.html" target="_blank">(another lovely illustration)</a>
 				</section>
 				<section>
 					<h1>How many checks?</h1>
@@ -170,7 +168,9 @@ for each object A:
 					<li>log<sub>2</sub> N checks per item</li>
 					<li>N * log<sub>2</sub> N checks total</li>
 
-					Janessa, graph of log(n)
+					<a href="https://www.desmos.com/calculator" target="_blank">
+						<img src="images/log_n.png" width="500">
+					</a>
 
 					<li>Much faster than N<sup>2</sup></li>
 					</ul>
@@ -189,8 +189,8 @@ for each object A:
 					<li>Divide space into small squares</li>
 					<li>Only check objects in the same square</li>
 					<li>Data structure: array of arrays of arrays</li>
-					Janessa, we should illustrate that data structure
 					</ul>
+					<img width="500" src="http://www.codeproject.com/KB/cs/Arrays-dontumindit/array9.gif">
 				</section>
 				<section>
 					<h1>Evaluating algorithms and data structures</h1>
@@ -205,6 +205,10 @@ for each object A:
 					<li class="fragment">O(N): linear time</li>
 					<li class="fragment">O(2<sup>N</sup>): exponential time</li>
 					</ul>
+				</section>
+				<section>
+					<h1>Big O notation</h1>
+					<img width="500" src="http://www.cs.ucsb.edu/~pconrad/cs40/images/ch03_jpeg/03-2-003.jpg">
 				</section>
 				<section>
 					<h1>Standard data structures</h1>
@@ -223,6 +227,11 @@ for each object A:
 					<li>Insert in middle <sup>1</sup>: O(N)</li>
 					<li>Delete from middle <sup>1</sup>: O(N)</li>
 					</ul>
+					<img src="http://2.bp.blogspot.com/-v-dkON4gwhQ/U4cw77VA-2I/AAAAAAAABkI/RL1x8PGgt-U/s1600/Array+in+Java+Comparision.gif">
+				</section>
+				<section>
+					<h1>Binary search tree</h1>
+					<img width="600" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Binary_search_tree.svg/2000px-Binary_search_tree.svg.png">
 				</section>
 				<section>
 					<h1>Binary search tree</h1>
@@ -234,6 +243,10 @@ for each object A:
 					<li>Insert in middle : O(log N)</li>
 					<li>Delete from the middle : O(log N)</li>
 					</ul>
+				</section>
+				<section>
+					<h1>Hash table<sup>1</sup></h1>
+					<img width="600" src="https://social.microsoft.com/Forums/getfile/454/">
 				</section>
 				<section>
 					<h1>Hash table<sup>1</sup></h1>
@@ -258,7 +271,7 @@ for each object A:
 					<li>Put it at the beginning</li>
 					<li>Repeat with remainder of array</li>
 					</ul>
-					Janessa, illustration?  video?
+					<p><a href="http://visualgo.net/sorting.html" target="_blank">[Click for Visualization]</a></p>
 				</section>
 				<section>
 					<h1>Insertion sort</h1>
@@ -268,7 +281,7 @@ for each object A:
 					<li>Put at the correct place in new array</li>
 					<li>Repeat with remainder of old array</li>
 					</ul>
-					Janessa, illustration?  video?
+					<p><a href="http://visualgo.net/sorting.html" target="_blank">[Click for Visualization]</a></p>
 				</section>
 				<section>
 					<h1>Merge sort</h1>
@@ -282,11 +295,12 @@ for each object A:
 				</section>
 				<section>
 					<h1>Merging</h1>
-					Janessa, illustration?
+					<img width="500" src="http://d18khu5s3lkxd9.cloudfront.net//wp-content/uploads/2013/03/Merge-Sort.png">
 				</section>
 				<section>
 					<h1>Conclusion</h1>
 					<ul>
+					<li>You can structure and solve a diversity of problems</li>
 					<li>You can fix slow code!</li>
 					<li>Data structures and algorithms can help</li>
 					</ul>
@@ -299,6 +313,13 @@ for each object A:
 					<li>Sort the second half</li>
 					<li>Merge the two sorted lists</li>
 					</ul>
+				</section>
+				<section>
+					<h1>Cool resources</h1>
+					<a href="http://visualgo.net/" target="_blank"><img src="images/visualgo.png"></a>
+					<a href="https://www.khanacademy.org/computing/computer-science/algorithms" target="_blank">
+						<img src="http://richardnau.com/wp-content/uploads/2014/05/khan-academy-logo-400x74.png">
+					</a>
 				</section>
 			</div>
 

@@ -221,6 +221,11 @@ body {
   border-color: #2a76dd;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.55); }
 
+img.clear {
+  border: none !important;
+  box-shadow: none !important;
+}
+
 /*********************************************
  * NAVIGATION CONTROLS
  *********************************************/
